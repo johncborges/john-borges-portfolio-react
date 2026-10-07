@@ -13,24 +13,36 @@ A personal portfolio site built with React + Vite.
 ```
 src/
   components/
-    Sidebar.jsx      sticky sidebar: name, nav, social links
-    About.jsx        intro / positioning section
-    Job.jsx           single job entry (used by Experience)
-    Experience.jsx    maps over JOBS data → Job components
-    CaseStudy.jsx     Dojo → Angular migration case study
-    Skills.jsx        maps over SKILL_GROUPS data
-    Contact.jsx       closing CTA + contact links
-    Tag.jsx           small reusable pill/tag
-  data.js             all content (jobs, skills, nav sections) as data
-  useActiveSection.js custom hook: highlights nav link for section in view
-  App.jsx             composes all sections
-  main.jsx            React entry point
-  index.css           global styles / design tokens
-index.html            Vite HTML entry
+    sidebar.jsx         sticky sidebar: name, nav, contact links
+    about.jsx           intro / positioning section
+    job.jsx             single job entry (used by Experience)
+    experience.jsx      maps over JOBS data → Job components
+    case-study.jsx      Dojo stabilization → Angular migration case study
+    skills.jsx          maps over SKILL_GROUPS data
+    contact.jsx         closing CTA + contact links
+    tag.jsx             small reusable pill/tag
+    external-link.jsx   link that opens in a new tab, with screen-reader notice
+    icon.jsx            inline SVG icons (email, LinkedIn, GitHub, resume)
+    video-embed.jsx     click-to-load YouTube embed with local thumbnail
+  data.js               jobs, skills, and nav sections as data
+  use-active-section.js custom hook: highlights nav link for section in view
+  app.jsx               composes all sections
+  main.jsx              React entry point
+  index.css             global styles / design tokens
+public/
+  favicon.svg           browser tab icon
+  john-photo.jpg        sidebar avatar
+  og-image.jpg          social link preview image
+  ecq-walkthrough.jpg   case study video thumbnail
+  john-borges-resume.pdf  downloadable resume
+index.html              Vite HTML entry (title, meta and social preview tags)
 ```
 
-Content lives in `src/data.js` — update job history, skills, or bullets there
-without touching component code.
+File names use lowercase kebab-case; component names in code stay PascalCase.
+
+Job history, skills, and nav sections live in `src/data.js`, so they can be
+updated without touching component code. The About, Case Study, and Contact
+text lives directly in their components.
 
 ## Setup
 

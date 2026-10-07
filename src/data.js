@@ -70,3 +70,47 @@ export const SKILL_GROUPS = [
     items: ['Technical Leadership', 'Mentoring', 'Technical Interviewing', 'Code Review'],
   },
 ];
+
+// Product screenshots for the case study, taken from public demo videos.
+const SOURCES = {
+  hivemanager: { label: 'Aerohive demo by Cerdant (2018)', href: 'https://www.youtube.com/watch?v=ocQeTNd5sek' },
+  xiq: { label: 'ExtremeCloud IQ New Features (2020)', href: 'https://www.youtube.com/watch?v=qrhCoZJlJy8' },
+  platformOne: { label: 'Extreme Platform ONE demo (2025)', href: 'https://www.youtube.com/watch?v=-IRG4TWVQxg' },
+};
+
+export const CASE_STUDY_SHOTS = {
+  dojo: [
+    {
+      src: '/product/hivemanager-client360.webp',
+      label: '2018 · Before',
+      title: 'Client 360 in HiveManager NG, the Dojo UI I inherited at Aerohive',
+      source: SOURCES.hivemanager,
+    },
+    {
+      src: '/product/xiq-client360.webp',
+      label: '2020 · After',
+      title: 'The same Client 360 view in ExtremeCloud IQ, after the Dojo modernization',
+      source: SOURCES.xiq,
+    },
+  ],
+  angular: [
+    {
+      src: '/product/p1-dashboard.webp',
+      label: 'Dashboard',
+      title: 'Extreme Platform ONE monitoring dashboard',
+      source: SOURCES.platformOne,
+    },
+    {
+      src: '/product/p1-visualize.webp',
+      label: 'Visualize',
+      title: 'Extreme Platform ONE topology view',
+      source: SOURCES.platformOne,
+    },
+    {
+      src: '/product/p1-network-devices.webp',
+      label: 'Network devices',
+      title: 'Extreme Platform ONE network devices list',
+      source: SOURCES.platformOne,
+    },
+  ],
+};
