@@ -50,6 +50,12 @@ describe('App', () => {
     }
   });
 
+  it('lays out the Angular migration as a short list rather than a wall of text', () => {
+    render(<App />);
+    const caseStudy = document.getElementById('case-study')!;
+    expect(within(caseStudy).getAllByRole('listitem')).toHaveLength(3);
+  });
+
   it('offers the resume as a download', () => {
     render(<App />);
     const resumeLinks = screen.getAllByRole('link', { name: /resume/i });

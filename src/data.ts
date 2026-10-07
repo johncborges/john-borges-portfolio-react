@@ -23,6 +23,8 @@ export interface Source {
 
 export interface Shot {
   src: string;
+  width: number;
+  height: number;
   label: string;
   title: string;
   source: Source;
@@ -155,12 +157,16 @@ export const CASE_STUDY_SHOTS: Record<'dojo' | 'angular', Shot[]> = {
   dojo: [
     {
       src: '/product/hivemanager-client360.webp',
+      width: 950,
+      height: 483,
       label: '2018 · Before',
       title: 'Client 360 in HiveManager NG, the Dojo UI I inherited at Aerohive',
       source: SOURCES.hivemanager,
     },
     {
       src: '/product/xiq-client360.webp',
+      width: 1280,
+      height: 774,
       label: '2020 · After',
       title: 'The same Client 360 view in ExtremeCloud IQ, after the Dojo modernization',
       source: SOURCES.xiq,
@@ -169,18 +175,24 @@ export const CASE_STUDY_SHOTS: Record<'dojo' | 'angular', Shot[]> = {
   angular: [
     {
       src: '/product/p1-dashboard.webp',
+      width: 1280,
+      height: 720,
       label: 'Dashboard',
       title: 'Extreme Platform ONE monitoring dashboard',
       source: SOURCES.platformOne,
     },
     {
       src: '/product/p1-visualize.webp',
+      width: 1280,
+      height: 720,
       label: 'Visualize',
       title: 'Extreme Platform ONE topology view',
       source: SOURCES.platformOne,
     },
     {
       src: '/product/p1-network-devices.webp',
+      width: 1280,
+      height: 720,
       label: 'Network devices',
       title: 'Extreme Platform ONE network devices list',
       source: SOURCES.platformOne,

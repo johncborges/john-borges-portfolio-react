@@ -343,6 +343,15 @@ p:last-child {
 .cs-step p {
   font-size: 14.5px;
 }
+.cs-step ul {
+  margin: 0 0 16px;
+  padding-left: 18px;
+}
+.cs-step li {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  margin-bottom: 6px;
+}
 @media (max-width: 560px) {
   .case-study {
     padding: 0;
@@ -497,6 +506,8 @@ footer a {
   overflow: hidden;
 }
 .shots-frame img {
+  width: auto;
+  height: auto;
   display: block;
   max-width: 100%;
   max-height: 100%;
@@ -536,6 +547,7 @@ footer a {
   color: var(--text-faint);
 }
 .shots-thumb img {
+  height: auto;
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;

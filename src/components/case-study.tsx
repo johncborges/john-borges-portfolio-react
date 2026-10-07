@@ -32,12 +32,19 @@ export default function CaseStudy() {
                 Extreme Platform ONE
               </ExternalLink>{' '}
               — to Angular. Several teams migrated different areas in parallel; my team and I took on several
-              modules, moving them incrementally while keeping a biweekly release cadence, including ongoing
-              bug fixes on the live product. I standardized our codebase and built unit testing from scratch
-              (Jest) to 99% coverage. I also created automated checks to enforce quality: custom ESLint rules
-              for accessibility, architectural integrity and automation tags, plus Stylelint rules and GitHub
-              checks.
+              modules.
             </p>
+            <ul>
+              <li>
+                Moved modules over incrementally while keeping a biweekly release cadence, including ongoing
+                bug fixes on the live product.
+              </li>
+              <li>Standardized our codebase and built unit testing from scratch (Jest) to 99% coverage.</li>
+              <li>
+                Added automated quality checks: custom ESLint rules for accessibility, architectural integrity
+                and automation tags, plus Stylelint rules and GitHub checks.
+              </li>
+            </ul>
           </div>
         </div>
         <div className="cs-step">

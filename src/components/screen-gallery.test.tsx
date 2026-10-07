@@ -7,12 +7,16 @@ import ScreenGallery from './screen-gallery';
 const shots: Shot[] = [
   {
     src: '/a.webp',
+    width: 1280,
+    height: 720,
     label: 'Label A',
     title: 'Title A',
     source: { label: 'Source A', href: 'https://example.com/a' },
   },
   {
     src: '/b.webp',
+    width: 1280,
+    height: 720,
     label: 'Label B',
     title: 'Title B',
     source: { label: 'Source B', href: 'https://example.com/b' },
@@ -41,6 +45,17 @@ describe('ScreenGallery', () => {
     expect(screen.getByRole('link', { name: /Source B/ })).toHaveAttribute('href', 'https://example.com/b');
     expect(screen.getByRole('button', { name: 'Label B' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('button', { name: 'Label A' })).toHaveAttribute('aria-pressed', 'false');
+  });
+
+  it('announces the new caption to screen readers when the screenshot changes', () => {
+    render(<ScreenGallery shots={shots} label="Demo screens" />);
+    expect(screen.getByText(/Title A/, { selector: 'figcaption' })).toHaveAttribute('aria-live', 'polite');
+  });
+
+  it('gives images intrinsic dimensions so the page does not shift while they load', () => {
+    render(<ScreenGallery shots={shots} label="Demo screens" />);
+    expect(screen.getByRole('img', { name: 'Title A' })).toHaveAttribute('width', '1280');
+    expect(screen.getByRole('img', { name: 'Title A' })).toHaveAttribute('height', '720');
   });
 
   it('can be operated from the keyboard', async () => {
