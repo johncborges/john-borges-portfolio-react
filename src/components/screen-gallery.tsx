@@ -16,7 +16,14 @@ export default function ScreenGallery({ shots, label }: ScreenGalleryProps) {
   return (
     <figure className="shots" aria-label={label}>
       <div className="shots-frame">
-        <img key={shot.src} src={shot.src} alt={shot.title} loading="lazy" />
+        <img
+          key={shot.src}
+          src={shot.src}
+          alt={shot.title}
+          width={shot.width}
+          height={shot.height}
+          loading="lazy"
+        />
       </div>
       <div className="shots-thumbs" style={{ '--cols': shots.length } as CSSProperties}>
         {shots.map((s, i) => (
@@ -27,12 +34,12 @@ export default function ScreenGallery({ shots, label }: ScreenGalleryProps) {
             aria-pressed={i === index}
             onClick={() => setIndex(i)}
           >
-            <img src={s.src} alt="" loading="lazy" />
+            <img src={s.src} alt="" width={s.width} height={s.height} loading="lazy" />
             <span>{s.label}</span>
           </button>
         ))}
       </div>
-      <figcaption>
+      <figcaption aria-live="polite">
         {shot.title} · Source: <ExternalLink href={shot.source.href}>{shot.source.label}</ExternalLink>
       </figcaption>
     </figure>
