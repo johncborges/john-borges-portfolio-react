@@ -1,4 +1,4 @@
-import Tag from './Tag.jsx';
+import Tag from './tag.jsx';
 
 export default function Job({ dates, title, company, bullets, tags }) {
   return (

@@ -1,4 +1,4 @@
-import Job from './Job.jsx';
+import Job from './job.jsx';
 import { JOBS } from '../data.js';
 
 export default function Experience() {

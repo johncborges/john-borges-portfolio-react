@@ -1,4 +1,5 @@
-import ExternalLink from './ExternalLink.jsx';
+import ExternalLink from './external-link.jsx';
+import Icon from './icon.jsx';
 import { SECTIONS } from '../data.js';
 
 export default function Sidebar({ active }) {
@@ -29,8 +30,22 @@ export default function Sidebar({ active }) {
         </nav>
       </div>
       <div className="social">
-        <a href="mailto:johncborges@gmail.com">Email</a>
-        <ExternalLink href="https://www.linkedin.com/in/johnborges/">LinkedIn</ExternalLink>
+        <a href="mailto:johncborges@gmail.com">
+          <Icon name="email" />
+          Email
+        </a>
+        <ExternalLink href="https://www.linkedin.com/in/johnborges/">
+          <Icon name="linkedin" />
+          LinkedIn
+        </ExternalLink>
+        <ExternalLink href="https://github.com/johncborges">
+          <Icon name="github" />
+          GitHub
+        </ExternalLink>
+        <a href="/john-borges-resume.pdf" download>
+          <Icon name="resume" />
+          Resume
+        </a>
       </div>
     </header>
   );

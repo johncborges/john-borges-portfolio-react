@@ -1,4 +1,4 @@
-import Tag from './Tag.jsx';
+import Tag from './tag.jsx';
 import { SKILL_GROUPS } from '../data.js';
 
 function SkillGroup({ label, items }) {

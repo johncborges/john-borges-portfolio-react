@@ -1,12 +1,12 @@
-import Sidebar from './components/Sidebar.jsx';
-import About from './components/About.jsx';
-import Experience from './components/Experience.jsx';
-import CaseStudy from './components/CaseStudy.jsx';
-import Skills from './components/Skills.jsx';
-import Contact from './components/Contact.jsx';
-import ExternalLink from './components/ExternalLink.jsx';
+import Sidebar from './components/sidebar.jsx';
+import About from './components/about.jsx';
+import Experience from './components/experience.jsx';
+import CaseStudy from './components/case-study.jsx';
+import Skills from './components/skills.jsx';
+import Contact from './components/contact.jsx';
+import ExternalLink from './components/external-link.jsx';
 import { SECTIONS } from './data.js';
-import { useActiveSection } from './useActiveSection.js';
+import { useActiveSection } from './use-active-section.js';
 
 export default function App() {
   const active = useActiveSection(SECTIONS);
