@@ -65,6 +65,7 @@ describe('App', () => {
     render(<App />);
 
     expect(screen.getAllByRole('figure')).toHaveLength(2);
+    expect(screen.getByRole('contentinfo')).toHaveTextContent('React 18 + TypeScript + Vite');
     expect(screen.getByRole('link', { name: /View source/ })).toHaveAttribute(
       'href',
       'https://github.com/johncborges/john-borges-portfolio-react',

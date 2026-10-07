@@ -27,7 +27,8 @@ export default function App() {
             <Contact />
           </main>
           <footer>
-            Designed and built by John Borges with React + Vite ·{' '}
+            Designed and built by John Borges. A React 18 + TypeScript + Vite project, with tests and
+            accessibility linting.{' '}
             <ExternalLink href="https://github.com/johncborges/john-borges-portfolio-react">
               View source
             </ExternalLink>
