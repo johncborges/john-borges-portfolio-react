@@ -1,7 +1,8 @@
-import Tag from './tag.jsx';
-import { SKILL_GROUPS } from '../data.js';
+import Tag from './tag';
+import { SKILL_GROUPS } from '../data';
+import type { SkillGroup as SkillGroupData } from '../data';
 
-function SkillGroup({ label, items }) {
+function SkillGroup({ label, items }: SkillGroupData) {
   return (
     <div className="skill-group">
       <div className="label">{label}</div>

@@ -1,4 +1,34 @@
-export const SECTIONS = [
+export interface Section {
+  id: string;
+  label: string;
+}
+
+export interface Job {
+  dates: string;
+  title: string;
+  company: string;
+  bullets: string[];
+  tags: string[] | null;
+}
+
+export interface SkillGroup {
+  label: string;
+  items: string[];
+}
+
+export interface Source {
+  label: string;
+  href: string;
+}
+
+export interface Shot {
+  src: string;
+  label: string;
+  title: string;
+  source: Source;
+}
+
+export const SECTIONS: Section[] = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'case-study', label: 'Case Study' },
@@ -6,20 +36,32 @@ export const SECTIONS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-export const JOBS = [
+export const JOBS: Job[] = [
   {
     dates: '2018 — 2026',
     title: 'Principal Frontend Engineer',
     company: 'Extreme Networks · joined via acquisition of Aerohive Networks',
     bullets: [
       'Technical Lead for a frontend team of 3–12 engineers; shaped frontend technical direction, including a micro frontend system, for Extreme Platform ONE',
-            "Modernized the legacy Dojo UI: replaced a monolithic codebase with MVVM, built unit testing from scratch (95%+), delivered a more modern look and faster load times, and standardized the code to end chronic merge conflicts",
+      'Modernized the legacy Dojo UI: replaced a monolithic codebase with MVVM, built unit testing from scratch (95%+), delivered a more modern look and faster load times, and standardized the code to end chronic merge conflicts',
       "Led my team's portion of the later incremental migration to Angular — one of several teams migrating different areas of the platform — owning several modules while keeping a biweekly release cadence (see case study)",
-      "Built Angular unit testing from scratch to 99% coverage on a 1,000,000+ line codebase; wrote custom ESLint/Stylelint rules enforcing accessibility, architectural integrity and automation tags, plus GitHub checks",
+      'Built Angular unit testing from scratch to 99% coverage on a 1,000,000+ line codebase; wrote custom ESLint/Stylelint rules enforcing accessibility, architectural integrity and automation tags, plus GitHub checks',
       'Built a shared component library with Lit (LitElement), publishing framework-agnostic Web Components via Storybook for use across both Angular and React projects',
       'Conducted technical interviews, onboarded new team members, mentored developers',
     ],
-    tags: ['Angular', 'Dojo', 'TypeScript', 'Jest', 'Intern', 'Selenium', 'GitHub Copilot', 'Claude Code', 'Lit', 'Web Components', 'Storybook'],
+    tags: [
+      'Angular',
+      'Dojo',
+      'TypeScript',
+      'Jest',
+      'Intern',
+      'Selenium',
+      'GitHub Copilot',
+      'Claude Code',
+      'Lit',
+      'Web Components',
+      'Storybook',
+    ],
   },
   {
     dates: '2010 — 2018',
@@ -42,16 +84,31 @@ export const JOBS = [
   {
     dates: '2000 — 2010',
     title: 'Earlier career',
-    company: 'CrestPoint Solutions · Contra Costa County · Maxim Integrated · Wells Fargo · Integrated Silicon Solution',
-    bullets: ['Enterprise .NET, ASP.NET, SQL Server and Oracle application development, database design, and business systems consulting'],
+    company:
+      'CrestPoint Solutions · Contra Costa County · Maxim Integrated · Wells Fargo · Integrated Silicon Solution',
+    bullets: [
+      'Enterprise .NET, ASP.NET, SQL Server and Oracle application development, database design, and business systems consulting',
+    ],
     tags: null,
   },
 ];
 
-export const SKILL_GROUPS = [
+export const SKILL_GROUPS: SkillGroup[] = [
   {
     label: 'Frontend',
-    items: ['Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS', 'Aurelia', 'Dojo', 'Lit', 'Web Components', 'Storybook', 'React'],
+    items: [
+      'Angular',
+      'TypeScript',
+      'JavaScript',
+      'HTML5',
+      'CSS',
+      'Aurelia',
+      'Dojo',
+      'Lit',
+      'Web Components',
+      'Storybook',
+      'React',
+    ],
   },
   {
     label: 'Design & UX',
@@ -59,7 +116,17 @@ export const SKILL_GROUPS = [
   },
   {
     label: 'Quality & Tooling',
-    items: ['Jest', 'Intern', 'Selenium', 'Robot Framework', 'ESLint', 'Stylelint', 'Git', 'JIRA', 'TeamCity'],
+    items: [
+      'Jest',
+      'Intern',
+      'Selenium',
+      'Robot Framework',
+      'ESLint',
+      'Stylelint',
+      'Git',
+      'JIRA',
+      'TeamCity',
+    ],
   },
   {
     label: 'AI-Assisted Development',
@@ -72,13 +139,19 @@ export const SKILL_GROUPS = [
 ];
 
 // Product screenshots for the case study, taken from public demo videos.
-const SOURCES = {
-  hivemanager: { label: 'Aerohive demo by Cerdant (2018)', href: 'https://www.youtube.com/watch?v=ocQeTNd5sek' },
+const SOURCES: Record<string, Source> = {
+  hivemanager: {
+    label: 'Aerohive demo by Cerdant (2018)',
+    href: 'https://www.youtube.com/watch?v=ocQeTNd5sek',
+  },
   xiq: { label: 'ExtremeCloud IQ New Features (2020)', href: 'https://www.youtube.com/watch?v=qrhCoZJlJy8' },
-  platformOne: { label: 'Extreme Platform ONE demo (2025)', href: 'https://www.youtube.com/watch?v=-IRG4TWVQxg' },
+  platformOne: {
+    label: 'Extreme Platform ONE demo (2025)',
+    href: 'https://www.youtube.com/watch?v=-IRG4TWVQxg',
+  },
 };
 
-export const CASE_STUDY_SHOTS = {
+export const CASE_STUDY_SHOTS: Record<'dojo' | 'angular', Shot[]> = {
   dojo: [
     {
       src: '/product/hivemanager-client360.webp',

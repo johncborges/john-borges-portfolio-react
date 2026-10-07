@@ -1,8 +1,15 @@
 import { useState } from 'react';
-import ExternalLink from './external-link.jsx';
+import type { CSSProperties } from 'react';
+import ExternalLink from './external-link';
+import type { Shot } from '../data';
+
+interface ScreenGalleryProps {
+  shots: Shot[];
+  label: string;
+}
 
 // Large screenshot with clickable thumbnails underneath.
-export default function ScreenGallery({ shots, label }) {
+export default function ScreenGallery({ shots, label }: ScreenGalleryProps) {
   const [index, setIndex] = useState(0);
   const shot = shots[index];
 
@@ -11,7 +18,7 @@ export default function ScreenGallery({ shots, label }) {
       <div className="shots-frame">
         <img key={shot.src} src={shot.src} alt={shot.title} loading="lazy" />
       </div>
-      <div className="shots-thumbs" style={{ '--cols': shots.length }}>
+      <div className="shots-thumbs" style={{ '--cols': shots.length } as CSSProperties}>
         {shots.map((s, i) => (
           <button
             key={s.src}

@@ -1,5 +1,5 @@
-import ExternalLink from './external-link.jsx';
-import Icon from './icon.jsx';
+import ExternalLink from './external-link';
+import Icon from './icon';
 
 export default function Contact() {
   return (

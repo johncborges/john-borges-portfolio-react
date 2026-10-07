@@ -1,27 +1,44 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { Section } from './data';
 
-export function useActiveSection(sections) {
-  const [active, setActive] = useState(sections[0]?.id);
-  const refs = useRef({});
+// Sections count as "current" once their top edge is within this many pixels of the viewport top.
+const SCROLL_OFFSET = 120;
+
+/**
+ * Pure selection logic, kept separate from the DOM so it is easy to test.
+ * Returns the last section whose top has scrolled past the offset, or the final
+ * section when the page is scrolled to the bottom (short last sections would
+ * otherwise never become active).
+ */
+export function pickActiveSectionId(
+  ids: readonly string[],
+  tops: Readonly<Record<string, number | undefined>>,
+  scrollY: number,
+  nearBottom: boolean,
+): string {
+  if (nearBottom) return ids[ids.length - 1];
+  const scrollPos = scrollY + SCROLL_OFFSET;
+  let current = ids[0];
+  for (const id of ids) {
+    const top = tops[id];
+    if (top !== undefined && top <= scrollPos) current = id;
+  }
+  return current;
+}
+
+/** Tracks which section is in view so the sidebar nav can highlight it. */
+export function useActiveSection(sections: readonly Section[]): string {
+  const [active, setActive] = useState(sections[0].id);
 
   useEffect(() => {
-    sections.forEach((s) => {
-      refs.current[s.id] = document.getElementById(s.id);
-    });
+    const ids = sections.map((s) => s.id);
+    const elements = ids.map((id) => [id, document.getElementById(id)] as const);
 
     function onScroll() {
       const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-      if (nearBottom) {
-        setActive(sections[sections.length - 1].id);
-        return;
-      }
-      const scrollPos = window.scrollY + 120;
-      let current = sections[0].id;
-      sections.forEach((s) => {
-        const el = refs.current[s.id];
-        if (el && el.offsetTop <= scrollPos) current = s.id;
-      });
-      setActive(current);
+      const tops: Record<string, number | undefined> = {};
+      for (const [id, el] of elements) tops[id] = el?.offsetTop;
+      setActive(pickActiveSectionId(ids, tops, window.scrollY, nearBottom));
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });

@@ -1,8 +1,8 @@
-import ExternalLink from './external-link.jsx';
-import Icon from './icon.jsx';
-import { SECTIONS } from '../data.js';
+import ExternalLink from './external-link';
+import Icon from './icon';
+import { SECTIONS } from '../data';
 
-export default function Sidebar({ active }) {
+export default function Sidebar({ active }: { active: string }) {
   return (
     <header className="sidebar">
       <div>

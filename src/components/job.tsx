@@ -1,6 +1,7 @@
-import Tag from './tag.jsx';
+import Tag from './tag';
+import type { Job as JobData } from '../data';
 
-export default function Job({ dates, title, company, bullets, tags }) {
+export default function Job({ dates, title, company, bullets, tags }: JobData) {
   return (
     <div className="job">
       <div className="dates">{dates}</div>

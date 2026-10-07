@@ -30,7 +30,9 @@ const PATHS = {
   ),
 };
 
-export default function Icon({ name }) {
+export type IconName = keyof typeof PATHS;
+
+export default function Icon({ name }: { name: IconName }) {
   return (
     <svg
       className="icon"
