@@ -1,5 +1,7 @@
 # John Borges — Portfolio
 
+[![CI](https://github.com/johncborges/john-borges-portfolio-react/actions/workflows/ci.yml/badge.svg)](https://github.com/johncborges/john-borges-portfolio-react/actions/workflows/ci.yml)
+
 My personal portfolio site, built with React, TypeScript and Vite. It is also a working sample of how I
 build in React: typed components, a custom hook, tests, accessibility linting and CI.
 
