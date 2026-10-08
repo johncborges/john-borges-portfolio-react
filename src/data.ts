@@ -100,6 +100,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     label: 'Frontend',
     items: [
       'Angular',
+      'React',
       'TypeScript',
       'JavaScript',
       'HTML5',
@@ -109,7 +110,6 @@ export const SKILL_GROUPS: SkillGroup[] = [
       'Lit',
       'Web Components',
       'Storybook',
-      'React',
     ],
   },
   {
