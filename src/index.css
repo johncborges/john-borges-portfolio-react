@@ -422,37 +422,40 @@ footer a {
     border-bottom: 1px solid var(--border);
   }
   .sidebar > div:first-child {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'avatar name'
+      'avatar role'
+      'nav nav';
     align-items: center;
     column-gap: 12px;
   }
   .avatar {
-    order: 1;
-    width: 36px;
-    height: 36px;
+    grid-area: avatar;
+    width: 40px;
+    height: 40px;
     font-size: 13px;
     border-radius: 8px;
     margin-bottom: 0;
     flex-shrink: 0;
   }
   .sidebar h1 {
-    order: 2;
+    grid-area: name;
     font-size: 16px;
+    line-height: 1.2;
   }
   .sidebar .role {
-    order: 3;
-    flex-basis: 100%;
+    grid-area: role;
     font-size: 12px;
-    margin: 2px 0 0;
+    margin: 0;
   }
   .sidebar .loc {
     display: none;
   }
-  nav {
-    order: 4;
-    flex-basis: 100%;
-    margin-top: 10px;
+  .sidebar nav {
+    grid-area: nav;
+    margin: 8px 0 0;
   }
   nav ul {
     display: flex;
@@ -460,6 +463,10 @@ footer a {
     padding: 0 0 12px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  nav ul::-webkit-scrollbar {
+    display: none;
   }
   nav li {
     margin-bottom: 0;
@@ -488,7 +495,7 @@ footer a {
     margin-bottom: 56px;
   }
   html {
-    scroll-padding-top: calc(100px + env(safe-area-inset-top, 0px));
+    scroll-padding-top: calc(116px + env(safe-area-inset-top, 0px));
   }
 }
 
